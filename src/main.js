@@ -72,12 +72,11 @@ function projects() {
   const line = $("[data-margin-line]");
 
   if (!reduceMotion && line) {
+    line.style.transform = "scaleY(0)";
     scroll(animate(line, { transform: ["scaleY(0)", "scaleY(1)"] }, { ease: "linear" }), {
       target: section,
       offset: ["start 0.75", "end 0.75"],
     });
-  } else if (line) {
-    line.style.transform = "scaleY(1)";
   }
 
   for (const project of $$("[data-project]")) {
@@ -100,7 +99,13 @@ function projects() {
       project,
       () => {
         animate(note, { clipPath: ["inset(0 100% 0 0)", "inset(0 0% 0 0)"] }, { duration: 0.9, ease: easeInOut });
-        animate(path, { strokeDashoffset: [length, 0] }, { duration: 0.45, delay: 0.75, ease: easeOut });
+        // WAAPI on the style property (Motion would set the SVG attribute, which the inline style overrides).
+        path.animate([{ strokeDashoffset: length }, { strokeDashoffset: 0 }], {
+          duration: 450,
+          delay: 750,
+          easing: "cubic-bezier(0.23, 1, 0.32, 1)",
+          fill: "forwards",
+        });
         if (inlineOld) setTimeout(() => inlineOld.classList.add("is-struck"), 900);
         stop();
       },

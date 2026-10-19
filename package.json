@@ -1,0 +1,18 @@
+{
+  "name": "gcfialho.github.io",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:css": "tailwindcss -i src/input.css -o dist/styles.css --minify",
+    "build:js": "esbuild src/main.js --bundle --minify --format=esm --target=es2020 --outfile=dist/main.js",
+    "build": "rm -rf dist && mkdir -p dist && npm run build:css && npm run build:js && cp index.html favicon.svg dist/ && cp -r fonts dist/",
+    "preview": "node scripts/preview.mjs"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.13",
+    "esbuild": "^0.25.10",
+    "motion": "^12.23.12",
+    "playwright": "^1.55.0",
+    "tailwindcss": "^4.1.13"
+  }
+}

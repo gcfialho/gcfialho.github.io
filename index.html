@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guilherme Fialho, ML Engineer and Data Engineer</title>
+  <meta name="description" content="Machine Learning Engineer (GenAI/LLMs) and Data Engineer in Rio de Janeiro. I build AI and data systems that check their own numbers.">
+  <meta property="og:title" content="Guilherme Fialho">
+  <meta property="og:description" content="Machine Learning Engineer (GenAI/LLMs) and Data Engineer. I build AI and data systems that check their own numbers.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gcfialho.github.io/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="main.js"></script>
+</head>
+<body>
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-ink focus:px-4 focus:py-2 focus:text-paper">Skip to content</a>
+
+  <header data-header class="sticky top-0 z-40 border-b border-transparent transition-[background-color,border-color] duration-200">
+    <div class="mx-auto flex max-w-6xl flex-wrap items-baseline justify-between gap-x-6 gap-y-2 px-5 py-4 sm:px-8">
+      <a href="#top" class="font-semibold no-underline">Guilherme Fialho</a>
+      <nav aria-label="Primary" class="flex flex-wrap gap-x-5 gap-y-1 text-[0.95rem] text-muted">
+        <a href="#projects" class="no-underline hover:text-ink">Projects</a>
+        <a href="#work" class="no-underline hover:text-ink">Work</a>
+        <a href="https://github.com/gcfialho" class="no-underline hover:text-ink">GitHub</a>
+        <a href="https://www.linkedin.com/in/guilherme-cagide-fialho/" class="no-underline hover:text-ink">LinkedIn</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero: the correction is the signature. -->
+    <section id="top" aria-labelledby="hero-title" class="mx-auto max-w-6xl px-5 pb-20 pt-14 sm:px-8 sm:pt-20 lg:pb-28">
+      <p class="flex flex-wrap items-baseline gap-x-[0.35em] text-[clamp(4.25rem,15vw,10.5rem)] font-semibold leading-[0.95] tracking-[-0.03em]" aria-hidden="true">
+        <span data-hero-old class="strike text-muted">10.41</span>
+        <span data-hero-new class="text-ink">6.34</span>
+      </p>
+      <p data-hero-note class="mt-5 max-w-xl text-muted">
+        <span class="sr-only">Corrected from 10.41 to 6.34:</span>
+        Services per patient in California's public dental data, after I audited the pipeline
+        that produced the first number.
+      </p>
+      <h1 id="hero-title" data-hero-title class="mt-10 max-w-[18ch] text-[clamp(2.1rem,5vw,3.6rem)] font-semibold leading-[1.08] tracking-[-0.02em] text-balance">
+        I build AI and data systems that check their own numbers.
+      </h1>
+      <p data-hero-intro class="mt-6 max-w-[62ch] text-[1.125rem] text-muted text-pretty">
+        Machine Learning Engineer (GenAI and LLMs) and Data Engineer in Rio de Janeiro. At
+        IPNET by Vivo, a Google Cloud partner, I take LLM products to production and build
+        the data platforms they run on.
+      </p>
+      <p data-hero-links class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+        <a href="#projects" class="press inline-block rounded-lg bg-ink px-5 py-3 font-semibold text-paper no-underline">See the projects</a>
+        <a href="https://www.linkedin.com/in/guilherme-cagide-fialho/">Contact me on LinkedIn</a>
+      </p>
+    </section>
+
+    <!-- Projects: each row has a margin note with the measured result, ticked as it scrolls in. -->
+    <section id="projects" aria-labelledby="projects-title" class="relative mx-auto max-w-6xl scroll-mt-20 px-5 pb-24 sm:px-8">
+      <div class="pointer-events-none absolute bottom-0 left-1 top-0 hidden w-[3px] overflow-hidden rounded-full sm:left-3 sm:block" aria-hidden="true">
+        <div data-margin-line class="h-full w-full origin-top scale-y-0 rounded-full bg-pencil/70"></div>
+      </div>
+
+      <h2 id="projects-title" class="text-[1.75rem] font-semibold tracking-[-0.01em]">Open-source projects</h2>
+      <p class="mt-2 max-w-[62ch] text-muted">Each one is tested in CI, and each margin note is a result I measured, not a claim.</p>
+
+      <div class="mt-10 divide-y divide-rule border-y border-rule">
+        <article data-project class="project group relative grid gap-x-12 gap-y-4 py-9 lg:grid-cols-[minmax(0,1fr)_20rem]">
+          <div class="relative">
+            <h3 class="text-[1.3rem] font-semibold"><a href="https://github.com/gcfialho/lgpd-face-redactor" class="no-underline hover:underline">lgpd-face-redactor</a></h3>
+            <p class="mt-2 max-w-[60ch] text-pretty">Blurs every face in a video except the people you choose, for LGPD and GDPR access
+              requests. Upload the footage, tick who stays visible, then download the redacted copy and an
+              audit record. Runs on your own machine.</p>
+            <p class="mt-3 text-[0.95rem] text-muted">OpenCV (YuNet, SFace), FastAPI, Docker</p>
+          </div>
+          <p data-note class="note relative">99.38% verification accuracy on LFW, and a policy that blurs whenever a match is in doubt.</p>
+        </article>
+
+        <article data-project class="project group relative grid gap-x-12 gap-y-4 py-9 lg:grid-cols-[minmax(0,1fr)_20rem]">
+          <div class="relative">
+            <h3 class="text-[1.3rem] font-semibold"><a href="https://github.com/gcfialho/dental-analytics-medallion" class="no-underline hover:underline">dental-analytics-medallion</a></h3>
+            <p class="mt-2 max-w-[60ch] text-pretty">A bronze, silver and gold pipeline over California's public dental data, with a
+              dashboard and an LLM brief whose every figure is checked against the warehouse before
+              anyone reads it.</p>
+            <p class="mt-3 text-[0.95rem] text-muted">dbt, DuckDB, OpenAI structured outputs, Streamlit</p>
+          </div>
+          <p data-note class="note relative">The audit found services counted twice:
+            <span data-inline-old class="strike-inline">71.2 million</span> <span data-inline-new>42.6 million</span>,
+            and 505 duplicate rows came out.</p>
+        </article>
+
+        <article data-project class="project group relative grid gap-x-12 gap-y-4 py-9 lg:grid-cols-[minmax(0,1fr)_20rem]">
+          <div class="relative">
+            <h3 class="text-[1.3rem] font-semibold"><a href="https://github.com/gcfialho/marketing-report-generator" class="no-underline hover:underline">marketing-report-generator</a></h3>
+            <p class="mt-2 max-w-[60ch] text-pretty">Funnel and channel analysis of messy CRM exports, reporting intervals and corrected
+              significance tests instead of bare percentages.</p>
+            <p class="mt-3 text-[0.95rem] text-muted">pandas, statsmodels, SciPy</p>
+          </div>
+          <p data-note class="note relative">Fixed a lookup that put every prospect in "Other Regions" and a keyword match that read "director" as "CTO".</p>
+        </article>
+
+        <article data-project class="project group relative grid gap-x-12 gap-y-4 py-9 lg:grid-cols-[minmax(0,1fr)_20rem]">
+          <div class="relative">
+            <h3 class="text-[1.3rem] font-semibold"><a href="https://github.com/gcfialho/uerj-marica-transit-network" class="no-underline hover:underline">uerj-marica-transit-network</a></h3>
+            <p class="mt-2 max-w-[60ch] text-pretty">A graph model of the public bus network of Maricá, RJ: centrality, connectivity and
+              shortest routes, with <a href="https://gcfialho.github.io/uerj-marica-transit-network/">interactive maps</a>.</p>
+            <p class="mt-3 text-[0.95rem] text-muted">NetworkX, Folium</p>
+          </div>
+          <p data-note class="note relative">614 stops and 46 lines. Removed a fake hub created when 33 stops were geocoded to one point.</p>
+        </article>
+
+        <article data-project class="project group relative grid gap-x-12 gap-y-4 py-9 lg:grid-cols-[minmax(0,1fr)_20rem]">
+          <div class="relative">
+            <h3 class="text-[1.3rem] font-semibold"><a href="https://github.com/gcfialho/uerj-optimization-methods" class="no-underline hover:underline">uerj-optimization-methods</a></h3>
+            <p class="mt-2 max-w-[60ch] text-pretty">Nelder–Mead written from its definition, and a constrained tank-design optimizer
+              using Newton and quasi-Newton methods.</p>
+            <p class="mt-3 text-[0.95rem] text-muted">NumPy, SciPy, Flask</p>
+          </div>
+          <p data-note class="note relative">Matches SciPy's evaluation count on every benchmark. The original solver reported an infeasible tank as the optimum; now it doesn't.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Work: a real sequence, so it is a timeline. -->
+    <section id="work" aria-labelledby="work-title" class="mx-auto max-w-6xl scroll-mt-20 px-5 pb-24 sm:px-8">
+      <h2 id="work-title" class="text-[1.75rem] font-semibold tracking-[-0.01em]">Work</h2>
+      <ol class="mt-8 grid gap-10 border-l-2 border-rule pl-6 sm:pl-8">
+        <li data-reveal class="relative">
+          <span class="absolute -left-[calc(1.5rem+7px)] top-2 size-3 rounded-full border-2 border-pencil bg-paper sm:-left-[calc(2rem+7px)]" aria-hidden="true"></span>
+          <h3 class="text-[1.2rem] font-semibold">Machine Learning Engineer, GenAI and LLMs</h3>
+          <p class="text-muted">IPNET by Vivo, <time datetime="2025-03">March 2025</time> to now</p>
+          <ul class="mt-3 grid max-w-[66ch] list-disc gap-2 pl-5 text-pretty marker:text-pencil">
+            <li>A WhatsApp customer-service agent that answers with business actions and a knowledge base,
+              keeps each customer's context in the CRM and hands off to humans through email tickets or
+              Google Cloud CCAI.</li>
+            <li>Accelero, a Google Chat assistant that turns the last 24 hours of conversations into each
+              person's action items every morning. Messages are processed in memory only.</li>
+            <li>Infrastructure as code with Pulumi that provisions governed Google Cloud projects end to end.</li>
+          </ul>
+        </li>
+        <li data-reveal class="relative">
+          <span class="absolute -left-[calc(1.5rem+7px)] top-2 size-3 rounded-full border-2 border-pencil bg-paper sm:-left-[calc(2rem+7px)]" aria-hidden="true"></span>
+          <h3 class="text-[1.2rem] font-semibold">Data Engineer</h3>
+          <p class="text-muted">IPNET by Vivo, <time datetime="2023-04">April 2023</time> to <time datetime="2025-03">March 2025</time></p>
+          <ul class="mt-3 grid max-w-[66ch] list-disc gap-2 pl-5 text-pretty marker:text-pencil">
+            <li>Migrations of tables over 1 TB for a large Latin American retailer, with Cloud Composer and Dataflow.</li>
+            <li>A three-layer data lake for a government client, with data quality checks.</li>
+            <li>Waze traffic pipelines feeding urban monitoring dashboards in Looker.</li>
+          </ul>
+        </li>
+        <li data-reveal class="relative">
+          <span class="absolute -left-[calc(1.5rem+7px)] top-2 size-3 rounded-full border-2 border-pencil bg-paper sm:-left-[calc(2rem+7px)]" aria-hidden="true"></span>
+          <h3 class="text-[1.2rem] font-semibold">Director of Computing Projects</h3>
+          <p class="text-muted">Serra Jr. Engenharia, <time datetime="2021-06">June 2021</time> to <time datetime="2023-08">August 2023</time></p>
+          <ul class="mt-3 grid max-w-[66ch] list-disc gap-2 pl-5 text-pretty marker:text-pencil">
+            <li>Scoped and budgeted client software projects, led the teams and wrote code alongside them.</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="toolbox-title" class="mx-auto grid max-w-6xl gap-14 px-5 pb-24 sm:px-8 lg:grid-cols-2">
+      <div data-reveal>
+        <h2 id="toolbox-title" class="text-[1.75rem] font-semibold tracking-[-0.01em]">Toolbox</h2>
+        <dl class="mt-6 grid gap-x-6 gap-y-3 sm:grid-cols-[9rem_1fr]">
+          <dt class="font-semibold">Languages</dt><dd class="text-muted">Python, TypeScript and Node.js, SQL</dd>
+          <dt class="font-semibold">AI and ML</dt><dd class="text-muted">LLM orchestration, agents, RAG and embeddings, structured extraction, evaluation, Vertex AI, CCAI, computer vision</dd>
+          <dt class="font-semibold">Data</dt><dd class="text-muted">Airflow and Cloud Composer, Beam and Dataflow, BigQuery, dbt, DuckDB</dd>
+          <dt class="font-semibold">Infrastructure</dt><dd class="text-muted">Docker, Kubernetes, Pulumi, Terraform, Kafka, GitHub Actions</dd>
+          <dt class="font-semibold">Cloud</dt><dd class="text-muted">Google Cloud, Oracle Cloud and AWS</dd>
+        </dl>
+      </div>
+      <div data-reveal>
+        <h2 class="text-[1.75rem] font-semibold tracking-[-0.01em]">Certifications and education</h2>
+        <dl class="mt-6 grid gap-x-6 gap-y-3 sm:grid-cols-[9rem_1fr]">
+          <dt class="font-semibold">Google Cloud</dt><dd class="text-muted">Associate Data Practitioner, Cloud Digital Leader</dd>
+          <dt class="font-semibold">Oracle Cloud</dt><dd class="text-muted">Professional in Generative AI, Data Science, DevOps and Developer; Associate in Foundations, AI Foundations and Data Platform</dd>
+          <dt class="font-semibold">Degree</dt><dd class="text-muted">BSc in Computer Engineering, UERJ (2020 to 2025), where I was a Calculus I teaching assistant</dd>
+          <dt class="font-semibold">Startup</dt><dd class="text-muted">Co-founded Opinei and took it from idea to investor presentations (TIM Brasil Academic Working Capital, 2022)</dd>
+          <dt class="font-semibold">Languages</dt><dd class="text-muted">Portuguese (native), English (C1), Spanish (advanced)</dd>
+        </dl>
+      </div>
+    </section>
+
+    <section aria-labelledby="contact-title" class="mx-auto max-w-6xl px-5 pb-20 sm:px-8">
+      <div data-reveal class="rounded-2xl bg-sheet px-6 py-10 sm:px-10">
+        <h2 id="contact-title" class="text-[clamp(1.75rem,4vw,2.5rem)] font-semibold tracking-[-0.02em]">Get in touch</h2>
+        <p class="mt-3 max-w-[60ch] text-[1.125rem] text-muted">The quickest way to reach me is LinkedIn. The code for everything above is on GitHub.</p>
+        <p class="mt-6 flex flex-wrap gap-4">
+          <a href="https://www.linkedin.com/in/guilherme-cagide-fialho/" class="press inline-block rounded-lg bg-ink px-5 py-3 font-semibold text-paper no-underline">Message me on LinkedIn</a>
+          <a href="https://github.com/gcfialho" class="press inline-block rounded-lg border border-rule px-5 py-3 font-semibold no-underline">Browse my GitHub</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mx-auto max-w-6xl px-5 pb-10 text-[0.9rem] text-muted sm:px-8">
+    <p>Hand-built with Tailwind CSS and Motion, with a self-hosted font. No trackers.</p>
+  </footer>
+</body>
+</html>

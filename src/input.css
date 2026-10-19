@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+/* Self-hosted IBM Plex Sans (SIL Open Font License). Variable weight. */
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("../fonts/ibm-plex-sans-latin.woff2") format("woff2");
+  font-weight: 100 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Palette: proof paper, navy ink, and the blue pencil an editor corrects numbers with. */
+:root {
+  --paper: #eef1ec;
+  --sheet: #f7f8f5;
+  --ink: #18222d;
+  --muted: #56616c;
+  --rule: #cfd6cc;
+  --pencil: #2d55d6;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #12171c;
+    --sheet: #171d23;
+    --ink: #e4eaee;
+    --muted: #9aa6b1;
+    --rule: #2b343d;
+    --pencil: #8aa7ff;
+  }
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-sheet: var(--sheet);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-rule: var(--rule);
+  --color-pencil: var(--pencil);
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    color-scheme: light dark;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    font-feature-settings: "tnum" 1; /* tabular figures: numbers are the point of this page */
+  }
+  a {
+    @apply underline decoration-pencil/50 underline-offset-[0.18em] hover:decoration-pencil;
+  }
+  :focus-visible {
+    @apply outline-3 outline-offset-2 outline-pencil;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+}
+
+/* Motion language: one blue pencil, used to strike, tick and underline.
+   Custom curves (the CSS keywords are too soft); only transform, opacity and clip-path animate. */
+:root {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+@layer components {
+  /* Pencil strike through a wrong number. Drawn by adding .is-struck (an interruptible transition). */
+  .strike, .strike-inline { position: relative; display: inline-block; }
+  .strike::after, .strike-inline::after {
+    content: "";
+    position: absolute;
+    left: -4%;
+    width: 108%;
+    border-radius: 999px;
+    background: var(--pencil);
+    transform-origin: left center;
+    transition: transform 600ms var(--ease-in-out);
+  }
+  .strike::after { top: 52%; height: 0.085em; transform: rotate(-7deg) scaleX(0); }
+  .strike-inline::after { top: 55%; height: 2px; transform: rotate(-4deg) scaleX(0); }
+  .strike.is-struck::after { transform: rotate(-7deg) scaleX(1); }
+  .strike-inline.is-struck::after { transform: rotate(-4deg) scaleX(1); }
+  .strike-inline.is-struck { color: var(--muted); }
+
+  /* Without JavaScript, never show the wrong number unstruck. */
+  html:not(.js) .strike::after { transform: rotate(-7deg) scaleX(1); }
+  html:not(.js) .strike-inline::after { transform: rotate(-4deg) scaleX(1); }
+
+  /* Hero pieces wait for the load sequence; a CSS fail-safe reveals them if the script never runs. */
+  .js [data-hero-old], .js [data-hero-new], .js [data-hero-note], .js [data-hero-title], .js [data-hero-intro], .js [data-hero-links] {
+    opacity: 0;
+    animation: failsafe-show 1ms 2.6s forwards;
+  }
+  @keyframes failsafe-show { to { opacity: 1; } }
+
+  /* Margin note: the measured result, with a pencil tick and rule. */
+  .note {
+    border-left: 2px solid var(--pencil);
+    padding: 0.15rem 0 0.15rem 1rem;
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+  .note .tick { display: inline-block; width: 1.05em; height: 1.05em; margin-right: 0.35em; vertical-align: -0.16em; color: var(--pencil); }
+  @media (min-width: 64rem) { .note { align-self: start; margin-top: 0.4rem; } }
+
+  /* Press feedback for anything pressable. */
+  .press { transition: transform 160ms var(--ease-out); }
+  .press:active { transform: scale(0.97); }
+
+  /* Header gains a surface once the page scrolls under it. */
+  [data-header].is-scrolled {
+    background-color: color-mix(in oklab, var(--paper) 82%, transparent);
+    border-color: var(--rule);
+    backdrop-filter: blur(10px);
+  }
+
+  /* Pointer spotlight on project rows (desktop only). Position is spring-smoothed in JS. */
+  @media (hover: hover) and (pointer: fine) {
+    .project::before {
+      content: "";
+      position: absolute;
+      inset: 0 -1.5rem;
+      border-radius: 1rem;
+      background: radial-gradient(22rem circle at var(--spot-x, 50%) var(--spot-y, 50%),
+        color-mix(in oklab, var(--pencil) 9%, transparent), transparent 70%);
+      opacity: 0;
+      transition: opacity 250ms ease;
+      pointer-events: none;
+    }
+    .project:hover::before { opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .strike::after, .strike-inline::after, .press { transition: none; }
+    .js [data-hero-old], .js [data-hero-new], .js [data-hero-note], .js [data-hero-title], .js [data-hero-intro], .js [data-hero-links] {
+      opacity: 1;
+      animation: none;
+    }
+    .project::before { display: none; }
+  }
+}

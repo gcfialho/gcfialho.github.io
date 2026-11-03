@@ -102,7 +102,7 @@
     <section id="projects" aria-labelledby="projects-title" class="wrap section">
       <div class="section-head">
         <h2 id="projects-title">Open-source projects</h2>
-        <p>Each one is tested in CI. The result beside it is something I measured.</p>
+        <p>Each one is tested and type-checked (mypy strict) in CI. The result beside it is something I measured.</p>
       </div>
 
       <ul class="projects">
@@ -133,15 +133,15 @@
           </div>
           <p class="project-desc">Funnel and channel analysis of messy CRM exports, reporting intervals and corrected
             significance tests instead of bare percentages.</p>
-          <p class="project-result"><svg class="check-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5 6.6 11.4 12.5 4.8"/></svg><span>Fixed a lookup that put every prospect in "Other Regions" and a keyword match that read "director" as "CTO".</span></p>
+          <p class="project-result"><svg class="check-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5 6.6 11.4 12.5 4.8"/></svg><span>Checked against known true rates on 200 simulated exports per size: it flags the better channel in 89% of them at 5,000 prospects, and in the wrong direction at most 1%.</span></p>
         </li>
         <li class="project">
           <div class="project-id">
             <h3><a href="https://github.com/gcfialho/uerj-marica-transit-network" class="project-link"><code>uerj-marica-transit-network</code></a></h3>
             <p class="stack">NetworkX, MapLibre</p>
           </div>
-          <p class="project-desc">A graph model of the public bus network of Maricá, RJ: centrality, connectivity and
-            shortest routes, with an <a href="https://gcfialho.github.io/uerj-marica-transit-network/" class="inline-link">interactive explorer</a> in Portuguese and English.</p>
+          <p class="project-desc">A graph model of the public bus network of Maricá, RJ: centrality, shortest routes,
+            reach by number of transfers and stop spacing, with an <a href="https://gcfialho.github.io/uerj-marica-transit-network/" class="inline-link">interactive explorer</a> in Portuguese and English.</p>
           <p class="project-result"><svg class="check-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5 6.6 11.4 12.5 4.8"/></svg><span>614 stops and 46 lines. Removed a fake hub created when 33 stops were geocoded to one point.</span></p>
         </li>
         <li class="project">
@@ -154,6 +154,10 @@
           <p class="project-result"><svg class="check-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5 6.6 11.4 12.5 4.8"/></svg><span>Matches SciPy's evaluation count on every benchmark. The original solver reported an infeasible tank as the optimum; now it doesn't.</span></p>
         </li>
       </ul>
+      <p class="more-work">More coursework, rewritten as tested packages:
+        <a href="https://github.com/gcfialho/uerj-advection-schemes" class="inline-link">finite-difference and TVD advection schemes</a>,
+        <a href="https://github.com/gcfialho/uerj-intro-ai" class="inline-link">search, constraint satisfaction and an MLP from scratch</a>, and
+        <a href="https://github.com/gcfialho/uerj-linear-models" class="inline-link">least squares with inference and diagnostics</a>.</p>
     </section>
 
     <section id="work" aria-labelledby="work-title" class="wrap section">

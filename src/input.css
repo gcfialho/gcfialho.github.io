@@ -305,6 +305,7 @@
   .project-desc { max-width: 60ch; }
   .project-result { display: flex; gap: 0.5rem; align-items: flex-start; font-size: 0.95rem; line-height: 1.5; }
   .project-result s { color: var(--muted); text-decoration-color: var(--flagged); text-decoration-thickness: 2px; }
+  .more-work { margin-top: 1.5rem; color: var(--muted); font-size: 0.95rem; max-width: 70ch; }
 
   /* ---------- Work: a real sequence, so a timeline ---------- */
   .timeline { position: relative; }

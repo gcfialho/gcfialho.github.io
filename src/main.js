@@ -39,14 +39,14 @@ function heroSequence() {
     return;
   }
 
-  animate(old, { opacity: [0, 1], transform: ["translateY(0.12em)", "translateY(0)"] }, { duration: 0.5, ease: easeOut });
-  setTimeout(() => old.classList.add("is-struck"), 420);
+  animate(old, { opacity: [0, 1], transform: ["translateY(0.12em)", "translateY(0)"] }, { duration: 0.4, ease: easeOut });
+  setTimeout(() => old.classList.add("is-struck"), 300);
   animate(
     fresh,
     { opacity: [0, 1], filter: ["blur(10px)", "blur(0px)"], transform: ["translateX(-0.12em) scale(0.96)", "translateX(0) scale(1)"] },
-    { duration: 0.7, delay: 0.95, ease: overshoot },
+    { duration: 0.6, delay: 0.7, ease: overshoot },
   );
-  animate(note, { opacity: [0, 1] }, { duration: 0.5, delay: 1.25, ease: "ease-out" });
+  animate(note, { opacity: [0, 1] }, { duration: 0.4, delay: 0.9, ease: easeOut });
 
   const words = splitWords(title);
   for (const word of words) word.style.opacity = "0";
@@ -54,11 +54,11 @@ function heroSequence() {
   animate(
     words,
     { opacity: [0, 1], filter: ["blur(6px)", "blur(0px)"], transform: ["translateY(0.3em)", "translateY(0)"] },
-    { duration: 0.55, delay: stagger(0.045, { startDelay: 1.35 }), ease: easeOut },
+    { duration: 0.5, delay: stagger(0.035, { startDelay: 0.85 }), ease: easeOut },
   );
   animate([intro, links], { opacity: [0, 1], transform: ["translateY(10px)", "translateY(0)"] }, {
-    duration: 0.6,
-    delay: stagger(0.08, { startDelay: 1.75 }),
+    duration: 0.5,
+    delay: stagger(0.08, { startDelay: 1.15 }),
     ease: easeOut,
   });
 }
@@ -153,17 +153,42 @@ function spotlight(element) {
 
 function reveals() {
   for (const element of $$("[data-reveal]")) {
-    if (reduceMotion) continue;
     element.style.opacity = "0";
     const stop = inView(
       element,
       () => {
-        animate(element, { opacity: [0, 1], transform: ["translateY(16px)", "translateY(0)"] }, { duration: 0.6, ease: easeOut });
+        // Reduced motion keeps the fade (it carries no movement) and drops the travel.
+        const keyframes = reduceMotion
+          ? { opacity: [0, 1] }
+          : { opacity: [0, 1], transform: ["translateY(12px)", "translateY(0)"] };
+        animate(element, keyframes, { duration: reduceMotion ? 0.3 : 0.5, ease: easeOut });
         stop();
       },
-      { amount: 0.25 },
+      { amount: 0.2 },
     );
   }
+}
+
+/* ---------- Work: the current role's marker pings once when it scrolls in. ---------- */
+
+function currentRole() {
+  const dot = $("[data-current-dot]");
+  if (!dot || reduceMotion) return;
+  const stop = inView(
+    dot,
+    () => {
+      const ring = dot.querySelector("span");
+      ring.animate(
+        [
+          { transform: "scale(1)", opacity: 0.55 },
+          { transform: "scale(2.6)", opacity: 0 },
+        ],
+        { duration: 900, delay: 350, easing: "cubic-bezier(0.23, 1, 0.32, 1)", fill: "both" },
+      );
+      stop();
+    },
+    { amount: 1 },
+  );
 }
 
 function header() {
@@ -176,4 +201,5 @@ function header() {
 heroSequence();
 projects();
 reveals();
+currentRole();
 header();

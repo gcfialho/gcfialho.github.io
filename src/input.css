@@ -52,6 +52,7 @@
   }
   a {
     @apply underline decoration-pencil/50 underline-offset-[0.18em] hover:decoration-pencil;
+    transition: text-decoration-color 150ms ease, color 150ms ease;
   }
   :focus-visible {
     @apply outline-3 outline-offset-2 outline-pencil;
@@ -94,7 +95,7 @@
   /* Hero pieces wait for the load sequence; a CSS fail-safe reveals them if the script never runs. */
   .js [data-hero-old], .js [data-hero-new], .js [data-hero-note], .js [data-hero-title], .js [data-hero-intro], .js [data-hero-links] {
     opacity: 0;
-    animation: failsafe-show 1ms 2.6s forwards;
+    animation: failsafe-show 1ms 2.2s forwards;
   }
   @keyframes failsafe-show { to { opacity: 1; } }
 
@@ -109,7 +110,7 @@
   @media (min-width: 64rem) { .note { align-self: start; margin-top: 0.4rem; } }
 
   /* Press feedback for anything pressable. */
-  .press { transition: transform 160ms var(--ease-out); }
+  .press { transition: transform 160ms var(--ease-out), background-color 150ms ease, border-color 150ms ease; }
   .press:active { transform: scale(0.97); }
 
   /* Header gains a surface once the page scrolls under it. */
@@ -124,7 +125,7 @@
     .project::before {
       content: "";
       position: absolute;
-      inset: 0 -1.5rem;
+      inset: 0 -1rem; /* stays inside the 1.25rem mobile gutter: no sideways scroll */
       border-radius: 1rem;
       background: radial-gradient(22rem circle at var(--spot-x, 50%) var(--spot-y, 50%),
         color-mix(in oklab, var(--pencil) 9%, transparent), transparent 70%);

@@ -307,7 +307,7 @@ function lineage() {
       play();
       stop();
     },
-    { amount: 0.35 },
+    { amount: 0.1 }, // start as soon as it shows, so it is never an empty frame on phones
   );
 }
 

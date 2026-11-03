@@ -140,7 +140,7 @@
     transition: background-color 200ms ease, border-color 200ms ease;
   }
   .site-header.is-scrolled {
-    background: color-mix(in oklab, var(--paper) 84%, transparent);
+    background: color-mix(in oklab, var(--paper) 94%, transparent);
     border-color: var(--line);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);

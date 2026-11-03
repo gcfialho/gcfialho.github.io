@@ -1,7 +1,12 @@
 # gcfialho.github.io
 
-Personal site of Guilherme Fialho, Machine Learning Engineer (GenAI/LLMs) and Data Engineer.
+Personal site of Guilherme Fialho, Data and Machine Learning Engineer (GenAI and LLMs).
 Live at **https://gcfialho.github.io**.
+
+<p>
+  <img src="docs/screenshot-desktop.png" alt="Desktop: the headline and the lineage graph after the audit replay, showing 6.34 services per patient" width="72%">
+  <img src="docs/screenshot-mobile.png" alt="Phone, dark mode: the headline, availability and the two calls to action" width="22%">
+</p>
 
 - **Stack:** Tailwind CSS v4 (compiled at build time) and [Motion](https://motion.dev)
   (bundled with esbuild). Bricolage Grotesque and JetBrains Mono are self-hosted, so the site

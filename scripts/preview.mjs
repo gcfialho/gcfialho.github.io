@@ -27,7 +27,7 @@ for (const shot of shots) {
   const context = await browser.newContext({ ...shot, recordVideo: shot.name === "desktop-light" ? { dir: out, size: shot.viewport } : undefined });
   const page = await context.newPage();
   await page.goto("http://localhost:4173/");
-  await page.waitForTimeout(3000);
+  await page.waitForTimeout(9000); // let the lineage sequence finish
   await page.screenshot({ path: `${out}${shot.name}-hero.png` });
   await page.evaluate(() => document.querySelector("#projects").scrollIntoView());
   await page.mouse.move(500, 380);

@@ -9,6 +9,8 @@
     "preview": "node scripts/preview.mjs"
   },
   "devDependencies": {
+    "@fontsource-variable/bricolage-grotesque": "^5.3.0",
+    "@fontsource-variable/jetbrains-mono": "^5.3.0",
     "@tailwindcss/cli": "^4.1.13",
     "esbuild": "^0.25.10",
     "motion": "^12.23.12",
